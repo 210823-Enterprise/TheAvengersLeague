@@ -28,4 +28,4 @@ HELP.md
 .project
 .settings/**
 .mvn/**
-target/m2e-wtp/web-resources/META-INF/maven/com.revature/TheAvengersLeague/pom.properties
+target/**
