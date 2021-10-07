@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -34,11 +35,16 @@ public class User {
 	
 	@Length(min=5)
 	@Pattern(regexp="[a-zA-Z0-9]*")
+	@Column(unique=true)
 	private String username;
 	
 	@Length(min=2)
 	@NotEmpty
 	private String password;
+	
+	@Email
+	@Column(unique=true)
+	private final String email;
 	
 	@ElementCollection
 	@CollectionTable(name="card_collections", joinColumns=@JoinColumn(name="user_id"))
@@ -61,6 +67,7 @@ public class User {
 		this.lastName = "";
 		this.username = "";
 		this.password = "";
+		this.email = "";
 		//TODO: assign to default card inv and decks
 		this.cards = new TreeSet<Integer>();
 		this.heroDeck = new LinkedList<>();
@@ -73,6 +80,7 @@ public class User {
 		this.lastName = "";
 		this.username = "";
 		this.password = "";
+		this.email = "";
 		//TODO: assign to default card inv and decks
 		this.cards = new TreeSet<Integer>();
 		this.heroDeck = new LinkedList<>();
@@ -85,6 +93,7 @@ public class User {
 		this.lastName = "";
 		this.username = username;
 		this.password = password;
+		this.email = "";
 		//TODO: assign to default card inv and decks
 		this.cards = new TreeSet<Integer>();
 		this.heroDeck = new LinkedList<>();
@@ -93,7 +102,7 @@ public class User {
 
 	public User(final int id, final String firstName, final String lastName, final String username,
 			final String password, final Set<Integer> cards, final LinkedList<Integer> heroDeck,
-			final LinkedList<Integer> villianDeck)
+			final LinkedList<Integer> villianDeck, final String email)
 	{
 		super();
 		this.id = id;
@@ -101,6 +110,7 @@ public class User {
 		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
+		this.email = email;
 		this.cards = cards;
 		this.heroDeck = heroDeck;
 		this.villianDeck = villianDeck;

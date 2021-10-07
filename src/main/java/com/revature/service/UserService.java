@@ -28,6 +28,12 @@ public class UserService {
 		return user.isPresent() ? user.get() : null;
 	}
 	
+	@Transactional(readOnly=true)
+	public User findByUsername(final String username) {
+		final Optional<User> user = this.userDao.findByUsername(username);
+		return user.isPresent() ? user.get() : null;
+	}
+	
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public User insert(final User user) {
 		return this.userDao.save(user);
