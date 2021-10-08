@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.models.User;
-import com.revature.repository.UserDAO;
+import com.revature.repositories.UserDAO;
 
 @Service
 public class UserService {

@@ -74,26 +74,13 @@ public class User {
 		this.villianDeck = new LinkedList<>();
 	}
 	
-	public User(final int id) {
-		this.id = id;
-		this.firstName = "";
-		this.lastName = "";
-		this.username = "";
-		this.password = "";
-		this.email = "";
-		//TODO: assign to default card inv and decks
-		this.cards = new TreeSet<Integer>();
-		this.heroDeck = new LinkedList<>();
-		this.villianDeck = new LinkedList<>();
-	}
-	
-	public User(final int id, final String username, final String password) {
-		this.id = id;
-		this.firstName = "";
-		this.lastName = "";
+	public User(final String firstName, final String lastName, final String username, final String password, final String email) {
+		this.id = -1;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
-		this.email = "";
+		this.email = email;
 		//TODO: assign to default card inv and decks
 		this.cards = new TreeSet<Integer>();
 		this.heroDeck = new LinkedList<>();
@@ -144,12 +131,12 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getUserName() {
+	public String getUsername() {
 		return this.username;
 	}
 
-	public void setUserName(final String userName) {
-		this.username = userName;
+	public void setUsername(final String username) {
+		this.username = username;
 	}
 
 	public boolean checkPassword(final String password) {
@@ -183,11 +170,12 @@ public class User {
 	public void setVillianDeck(final List<Integer> villianDeck) {
 		this.villianDeck = villianDeck;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "User [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", username=" + this.username
-				+ ", cards=" + this.cards + ", heroDeck=" + this.heroDeck + ", villianDeck=" + this.villianDeck + "]";
+				+ ", email=" + this.email + ", cards=" + this.cards + ", heroDeck=" + this.heroDeck + ", villianDeck=" + this.villianDeck
+				+ "]";
 	}
 
 	@Override
