@@ -29,3 +29,4 @@ HELP.md
 .settings/**
 .mvn/**
 target/**
+.factorypath
